@@ -1,0 +1,39 @@
+{% extends 'RestoUser/layout.html' %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <h1 class="my-4"></h1><br><br>
+            <div class="list-group">
+                <a href="/rhome" class="list-group-item">Create new table</a>
+                <a href="/tableDetails" class="list-group-item">Show all QR code</a>
+            </div>
+        </div>
+        <!-- /.col-lg-3 -->
+        <div class="col-lg-9"><br><br>
+            <div class="row">
+                {% for qr in allqr %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+                    <div class="card h-100">
+                        <a href="">
+                            <div class="card-img-top"
+                                 style="background: url('static/qrimages/{{qr.tqrcode}}'); background-repeat:no-repeat; background-size: cover; height:200px;width:100% "></div>
+                        </a>
+                        <div class="card-footer">
+                            <small class="text-muted">Table no. {{ qr.tableno}}</small>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+
+            <!-- /.row -->
+        </div>
+        <!-- /.col-lg-9 -->
+    </div>
+    <!-- /.row -->
+</div>
+
+{% endblock %}
